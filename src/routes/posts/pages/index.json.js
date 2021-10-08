@@ -1,3 +1,4 @@
+
 import { client } from '$lib/graphql-client'
 import { gql } from 'graphql-request'
 
@@ -8,14 +9,13 @@ export const get = async (req, res) => {
         pages {
           title
           slug
-          content{
+          content {
             html
           }
         }
       }
     `
     const { pages } = await client.request(query)
-
     return {
       status: 200,
       body: { pages },
